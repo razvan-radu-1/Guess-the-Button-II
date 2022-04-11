@@ -1,23 +1,23 @@
 function createButtons() {
-    let inputNrButtons  = document.getElementById("inputNrButtons").value;
-    for (var i = 1; i <= inputNrButtons; ++i) {
+    let numberOfButtons  = document.getElementById("numberOfButtons").value;
+    for (let i = 1; i <= numberOfButtons; ++i) {
         let button = document.createElement("button");
-		button.innerHTML = i;
-		button.setAttribute("id", i);
-		document.body.appendChild(button);
+	button.innerHTML = i;
+	button.setAttribute("id", i);
+	document.body.appendChild(button);
     }
-    let winnerButton = Math.floor(Math.random() * inputNrButtons + 1);
-    checkWinnerButton(winnerButton, inputNrButtons);
+    let winnerButton = Math.floor(Math.random() * numberOfButtons + 1);
+    checkWinnerButton(winnerButton, numberOfButtons);
 }
 
-function checkWinnerButton(winnerButton, inputNrButtons) { 
-    for (let i = 1; i <= inputNrButtons; ++i) {
-		document.getElementById(i).onclick = function () {
-			if (winnerButton === i) {
+function checkWinnerButton(winnerButton, numberOfButtons) {
+    for (let i = 1; i <= numberOfButtons; ++i) {
+	document.getElementById(i).onclick = function () {
+	    if (winnerButton === i) {
                 winningMessage.innerHTML += '<div id="winningMessage">' + "Congrats! You chose the Winner Button." + '</div>';     
             } else {
-                winningMessage.innerHTML += '<div id="winningMessage">' + "Sorry! Maybe next time." + '</div>';  
+            	winningMessage.innerHTML += '<div id="winningMessage">' + "Sorry! Maybe next time." + '</div>';  
             }  
-		}
 	}
+    }
 }
